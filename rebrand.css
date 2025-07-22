@@ -63,6 +63,7 @@ main{
     margin-top: 0px;
     margin-bottom: 0px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    
 }
 
 
@@ -104,7 +105,7 @@ main{
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
-    color: #f1faee;
+    color:  #222222;   /* edited color from white to black*/
 }
 
 .products {
@@ -164,15 +165,16 @@ main{
     position: relative;
     display: flex;
     justify-content: space-evenly;
-     background-color: rgb(253, 253, 253);
-  border-bottom: none;
-  box-shadow: none;
+   /*  background-color: rgb(253, 253, 253);*/
+    border-bottom: none;
+   /* box-shadow: none;*/
   
-  height: 23vh;
-   background: rgba(255, 255, 255, 0.1); /* Light white overlay */
-  backdrop-filter: blur(10px);          /* Apply blur behind */
-  -webkit-backdrop-filter: blur(10px);  /* For Safari */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  
+    height: 23vh;
+     background: rgba(255, 255, 255, 0.1); /* Light white overlay*/ 
+    backdrop-filter: blur(10px);          /* Apply blur behind*/ 
+    -webkit-backdrop-filter: blur(10px);  /* For Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 }
 .headline {
   font-weight: 500;
