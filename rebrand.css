@@ -121,6 +121,7 @@ main{
     text-align: center;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .product-card:hover {
@@ -169,12 +170,19 @@ main{
     border-bottom: none;
    /* box-shadow: none;*/
   
+
   
     height: 23vh;
      background: rgba(255, 255, 255, 0.1); /* Light white overlay*/ 
     backdrop-filter: blur(10px);          /* Apply blur behind*/ 
     -webkit-backdrop-filter: blur(10px);  /* For Safari */
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+  height: 24vh;
+   background: rgba(255, 255, 255, 0.1); /* Light white overlay */
+  backdrop-filter: blur(10px);          /* Apply blur behind */
+  -webkit-backdrop-filter: blur(10px);  /* For Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
 }
 .headline {
   font-weight: 500;
@@ -198,9 +206,9 @@ main{
 
 
 .logo{
-height: 30vh;
+height: 35vh;
   position: absolute;
-  left: 43vw;
+  left: 42vw;
   display: block;
   border: none;
   outline: none;
@@ -208,6 +216,7 @@ height: 30vh;
   object-fit: contain;
   clip-path: inset(0 0 5% 0);
   cursor: pointer;
+  padding-bottom: 5px;
 }
 .main-logo.logo{
   display: block;
@@ -276,4 +285,65 @@ i:hover {
   color: black;
 }
 
+footer{
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  align-items: center;
+  position: relative;
+     background: linear-gradient(to bottom, #f8f7f7, #fafafa);
+}
+.foot-Header{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15vh;
+margin-bottom: 10vh;
+}
 
+#footHeading{
+  color: black;
+  margin-bottom: 10px;
+}
+#email{
+  height: 7vh;
+  padding: 10px;
+}
+.footer-services{
+  display: flex;
+  justify-content: space-evenly;
+  color: black;
+list-style-type: none;
+
+}
+.fourth-footer-section{
+ margin-left: 15vw;
+}
+.third-footer-section{
+  margin-left: 15vw;
+}
+.second-footer-section{
+  margin-left: 15vw;
+}
+
+
+ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  list-style: none;
+}
+li{
+  margin-bottom: 3vh;
+}
+#copyright{
+  bottom: 20px;
+  color: black;
+  font-size: 1rem;
+  margin-top: 5vh;
+  margin-bottom: 4vh;
+}
+.last-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
