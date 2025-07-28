@@ -1,3 +1,35 @@
+.search-container{
+  display: flex;
+  align-items: center;
+  position: relative;  For positioning the icon if needed */
+  
+}
+
+.search-input {
+  width: 0; /* Initially hidden */
+  opacity: 0;
+  border: none;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+  /* Add other styling for the input field when visible */
+}
+
+.search-input.active {
+  width: 200px; /* Adjust as needed */
+  opacity: 1;
+  padding: 8px 10px  ; /* Add padding when active */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-right: 10px;
+  /* Other active styles */
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem; /* Adjust icon size */
+  color: #555;
+} 
 
 
 *{
