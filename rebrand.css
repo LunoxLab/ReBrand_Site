@@ -16,8 +16,11 @@ body {
   padding: 0;
 }
 header {
-  position: relative;
-  z-index: 1;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
+
 }
 
 main{
@@ -35,7 +38,7 @@ main{
     background-size: cover;
     background-position: center;
     position: relative;
-    z-index: 2;
+  
 }
 
 .hero-content {
@@ -112,6 +115,7 @@ main{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
     gap: 2rem;
+    
 }
 
 .product-card {
@@ -162,9 +166,14 @@ main{
   transform: scale(1.05);
   color: black;
 }
+.products h3{
+  color: black;
+}
 .navbar{
     position: relative;
     display: flex;
+    top: 0;
+    overflow: hidden;
     justify-content: space-evenly;
    /*  background-color: rgb(253, 253, 253);*/
     border-bottom: none;
@@ -273,6 +282,7 @@ height: 35vh;
   transform: scale(1.05);
    box-shadow: none;
   border: none;
+  position: relative;
   outline: none;
 }
 
@@ -406,4 +416,43 @@ li a{
   display: flex;
   margin-left: 8vw;
   margin-top: 4vh;
+}
+  .toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  position: fixed;
+  bottom: 38px;
+  right: 42vw;
+  z-index: 9999;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 2;
+}
+
+.badgeHolder{
+  position: absolute;
+  height: 5vh;
+  width: 2vw;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 0, 0);
+  border-radius: 12px;
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+ right: 9vw;
+ bottom: 5.6vh;
+ font-size: 1rem;
+
 }
