@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-
-
-
   // 4. Get current cart from localStorage (or start empty)
  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
  
@@ -40,9 +36,6 @@ function IconBadge(count){
 
 
 }
-
-
-
 
 
 function showToast(message) {
@@ -93,10 +86,6 @@ addCart.forEach(button=>{
      updateCartInStorage();
 
 
-    
-   
-    
-
     //Show pop out msg
     showToast("Item Added to Cart Successfully!");
     //count Icon Badge
@@ -105,7 +94,6 @@ addCart.forEach(button=>{
 });
 
 // Number badge count along with cart icon to see increment when adding items to cart//
-
 
 
 //On Clicking Location
@@ -119,3 +107,43 @@ function updateCartInStorage(){
     }
 
 });
+
+// search functionality
+
+ document.addEventListener('DOMContentLoaded', function(){
+	const searchInput = document.getElementById('search-input');	
+	const products= document.querySelectorAll('.product-card');
+	
+	function performSearch(){
+		const searchTerm = searchInput.value.toLowerCase().trim();
+		
+		products.forEach(product => {
+			const name = product.dataset.name.toLowerCase();
+			const tags = product.dataset.tags.toLowerCase();
+		
+		// check if search term matches with product property aka name
+		const isVisible = name.includes(searchTerm) || 
+		tags.includes(searchTerm);
+		
+		// show/hide product based on search
+		product.style.display = isVisible ? 'block' : 'none';  
+		});
+		
+	}
+
+	searchInput.addEventListener("keyup", function(e){
+		if(e.key === "Enter"){
+			performSearch();
+
+			// to properly show the products, we can invoke another web page to display the product in a row with suffeicient information about the product.
+		}
+	});
+		
+});
+
+
+
+
+
+
+
