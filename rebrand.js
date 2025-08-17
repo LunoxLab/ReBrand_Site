@@ -1,80 +1,119 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+document.addEventListener('DOMContentLoaded', function() {
+  const searchIcon = document.querySelector('.search-icon');
+  const searchInput = document.querySelector('.search-input');
 
-  const addCartButtons = document.querySelectorAll(".add-to-cart");
-  const badgeHolder = document.querySelector(".badgeHolder");
-
-  // Update badge
-  function IconBadge(count) {
-    if (!badgeHolder) return;
-    if (count > 0) {
-      badgeHolder.style.display = "block";
-      badgeHolder.textContent = count;
-    } else {
-      badgeHolder.style.display = "none";
-    }
-  }
-
-  // Save cart to localStorage
-  function updateCartInStorage() {
-    localStorage.setItem("cartItems", JSON.stringify(cart));
-  }
-
-  // Toast message
-  function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2000);
-  }
-
-  // Restore button states on page load
-  addCartButtons.forEach(button => {
-    const productId = button.getAttribute("data-id");
-    if (cart.find(item => item.id === productId)) {
-      button.textContent = "Go To Cart";
-      
+  searchIcon.addEventListener('click', function() {
+    searchInput.classList.toggle('active');
+    if (searchInput.classList.contains('active')) {
+      searchInput.focus(); // Focus the input when it appears
     }
   });
+});
 
-  // Handle button clicks
-  addCartButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const productId = button.getAttribute("data-id");
 
-      // If item is already in cart → go to cart
-      if (cart.find(item => item.id === productId)) {
-        window.location.href = "cart.html";
-        return;
-      }
 
-      // Get product details
-      let product = button.closest(".product-card");
-      let name = product.querySelector(".title").textContent;
-      let price = product.querySelector(".price").textContent;
-     let imgPath = product.querySelector(".img").getAttribute("src");
-    let imgFile = imgPath.split("/").pop(); // e.g. "Product1.jpg"
 
-      // Add to cart
-      cart.push({ id: productId, name, price, img:imgFile });
-      updateCartInStorage();
-      IconBadge(cart.length);
 
-      // Change button state
-      button.textContent = "Go To Cart";
-     
+  // 4. Get current cart from localStorage (or start empty)
+ let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+ 
 
-      // Show toast
-      showToast("Item Added to Cart Successfully!");
-    });
-  });
-
-  // Initial badge update
+ document.addEventListener("DOMContentLoaded", () => {
   IconBadge(cart.length);
 
-  // Cart icon click
-  document.getElementById("cart-icon").addEventListener("click", () => {
-    window.location.href = "cart.html";
+let addCart = document.querySelectorAll(".add-to-cart");
+
+function IconBadge(count){
+  // let icon = document.createElement("p");
+  // icon.classList.add("iconStyle");
+  let badgeHolder = document.querySelector(".badgeHolder");
+  if(!badgeHolder) return;
+  if(count>0){
+    badgeHolder.style.display = "block";
+    badgeHolder.textContent = count;
+
+  }else{
+    badgeHolder.style.display = "none";
+  }
+
+
+}
+
+
+
+
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  // Hide it after 2 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
+
+
+addCart.forEach(button=>{
+  button.addEventListener("click", function(){
+ // 1. Get parent element using closet (the .product div)
+    let product = button.closest(".products");
+
+    //Get Data from it//
+    let name = product.querySelector(".title").textContent;
+    let price = product.querySelector(".price").textContent;
+    let img = product.querySelector(".img").src;
+
+    let item = {
+      id: Date.now(), 
+      name: name,
+      price:price,
+      img:img
+    };
+
+    cart.push(item);
+   updateCartInStorage();
+   IconBadge(cart.length);
+      
+
+   
+
+    // If already added, redirect to cart
+    if(button.classList.contains("Added")){
+      window.location.href="\cart.html";
+      return;
+    }
+
+     // Add item to cart logic here...
+     button.textContent = "Go To Cart";
+     button.classList.add("Added");
+     updateCartInStorage();
+
+
+    
+   
+    
+
+    //Show pop out msg
+    showToast("Item Added to Cart Successfully!");
+    //count Icon Badge
+    
   });
+});
+
+// Number badge count along with cart icon to see increment when adding items to cart//
+
+
+
+//On Clicking Location
+document.getElementById("cart-icon").addEventListener("click",()=>{
+window.location.href = "/cart.html";
+
+});
+
+function updateCartInStorage(){
+     localStorage.setItem("cartItems", JSON.stringify(cart))
+    }
+
 });
