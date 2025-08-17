@@ -1,0 +1,165 @@
+*{
+    color: black;
+}
+
+.logo{
+
+    height: 20vh;
+}
+.navbar{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+.header{
+    display: flex;
+    position: relative;
+}
+.fa-solid.fa-arrow-left{
+position: absolute;
+top: 10vh;
+left: 10vw;
+font-size: 1.6rem;
+cursor: pointer;
+}
+.emptyClass{
+   position: absolute;
+    font-size: 1.8rem;
+   top: 30vh;
+  left: 38vw;
+   width: 80%;
+  display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.main{
+    position: relative;;
+}
+.cart-item{
+
+    display: flex;
+   
+       justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    height: 35vh;
+    position: relative;
+}
+.cart-img{
+    height: 25vh;
+    position: relative;
+}
+h4{
+position: absolute;
+left: 20vw;
+top: 11vh;
+font-size: 1.2rem;
+    
+}
+p{
+    display: flex;
+   justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 30%;
+    font-size: 1.5rem;
+    right: 50vw;
+}
+.buybtn{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.60rem;
+    background-color: rgb(94, 194, 94);
+    padding: 10px;
+    border-radius: 10px;
+   
+    transition: all 0.30s  ease;
+    
+
+}
+
+/* .buybtn:active{
+  transform: scaleZ(1.3);
+} */
+input{
+    font-size:1rem;
+    display: flex;
+    text-align: center;
+   
+}
+span{
+    padding: 10px;
+   
+}
+.fa-solid.fa-minus,.fa-solid.fa-plus{
+    cursor: pointer;
+    font-size: 1rem;
+}
+.BuyBtn{   
+   position: absolute;  /* position relative to main */
+bottom: 2vh;   
+
+/* distance from bottom */
+  left: 45%;           /* start from middle */
+ /* center horizontally */
+  display: flex;
+
+ 
+  background-color: rgb(79, 184, 79);
+  width: 10vw;
+  height: 8%;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer; 
+
+  
+}
+.CartContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   height: 100vh;
+   overflow-y: auto;
+    border: 1px solid #ccc;
+       
+    
+}
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.checkout-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+    margin-top: 10px;
+}
+.checkoutBtn{
+    font-size: 1.3rem;
+    background-color: rgb(94, 216, 94);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+     box-shadow: 0 2px #2d6a3b;
+     display: none;
+}
+#Fav-btn{
+   font-size: 1.4rem
+}
+.checkoutBtn:hover{
+    transform: scale(1.01);
+    
+}
+.checkoutBtn:active{
+    /* transition: all 0.20 ease-in; */
+    transform: translateY(2px);
+     box-shadow: 0 2px #2d6a3b;
+}
+.fa-solid.fa-trash{
+    font-size: 1.3rem;
+}
